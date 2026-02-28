@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animesh ❤️ Nidhi</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family:'Poppins',sans-serif;
+background:linear-gradient(-45deg,#ff9a9e,#fad0c4,#ffdde1,#fbc2eb);
+background-size:400% 400%;
+animation:gradient 12s ease infinite;
+min-height:100vh;
+overflow-x:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+@keyframes gradient{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* INTRO SCREEN */
+.intro{
+position:fixed;
+width:100%;
+height:100%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:rgba(255,255,255,0.95);
+z-index:10;
+transition:opacity 1s ease, visibility 1s ease;
+}
+
+.intro h1{
+font-family:'Playfair Display',serif;
+color:#c2185b;
+font-size:34px;
+margin-bottom:30px;
+}
+
+.button{
+padding:15px 35px;
+background:#e91e63;
+color:white;
+border:none;
+border-radius:30px;
+font-size:18px;
+cursor:pointer;
+transition:all 0.3s ease;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.button:hover{
+background:#c2185b;
+transform:scale(1.05);
+}
+
+/* MAIN CONTENT */
+.container{
+display:none;
+max-width:850px;
+background:rgba(255,255,255,0.95);
+padding:50px 35px;
+border-radius:25px;
+text-align:center;
+box-shadow:0 25px 60px rgba(0,0,0,0.25);
+animation:fadeIn 2s ease;
+margin:20px;
+}
+
+h2{
+font-family:'Playfair Display',serif;
+font-size:36px;
+color:#c2185b;
+margin-bottom:25px;
+}
+
+.message{
+font-size:18px;
+line-height:1.9;
+color:#444;
+min-height:220px;
+}
+
+.photo{
+width:100%;
+margin-top:35px;
+border-radius:20px;
+box-shadow:0 20px 50px rgba(0,0,0,0.3);
+transition:transform 0.5s ease;
+}
+
+.photo:hover{
+transform:scale(1.03);
+}
+
+.footer{
+margin-top:30px;
+font-size:17px;
+color:#888;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(30px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+.heart{
+position:fixed;
+bottom:-10px;
+font-size:18px;
+animation:floatUp 8s linear infinite;
+opacity:0.7;
+}
+
+@keyframes floatUp{
+0%{transform:translateY(0) scale(1);}
+100%{transform:translateY(-100vh) scale(1.5);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="intro" id="intro">
+<h1>Click to Open Surprise for Nidhi ❤️</h1>
+<button class="button" onclick="openSurprise()">Open My Heart</button>
+</div>
+
+<div class="container" id="mainContent">
+<h2>Animesh ❤️ Nidhi</h2>
+<p class="message" id="typewriter"></p>
+
+<img src="YOUR_IMAGE_LINK_HERE" alt="Animesh and Nidhi" class="photo">
+
+<div class="footer">
+Forever yours, <b>Animesh</b> ❤️
+</div>
+</div>
+
+<script>
+
+function openSurprise(){
+document.getElementById("intro").style.opacity="0";
+setTimeout(()=>{
+document.getElementById("intro").style.display="none";
+document.getElementById("mainContent").style.display="block";
+typeWriter();
+},1000);
+}
+
+const text = `
+My Dearest Nidhi,
+
+There are some people who enter your life and change it forever.
+For me, that person is you.
+
+You are not just beautiful —
+you are warmth, grace, strength and softness all together.
+
+Your smile calms my storms.
+Your presence feels like home.
+Your love feels like the most beautiful blessing.
+
+I don’t love you just for how you look —
+I love you for who you are.
+Your kindness.
+Your simplicity.
+Your caring heart.
+
+You are perfect exactly the way you are.
+And I promise to cherish you always.
+
+You are my today.
+You are my tomorrow.
+You are my forever.
+
+With all my heart,
+Animesh ❤️
+`;
+
+let i = 0;
+function typeWriter(){
+if(i < text.length){
+document.getElementById("typewriter").innerHTML += text.charAt(i);
+i++;
+setTimeout(typeWriter,35);
+}
+}
+
+function createHeart(){
+const heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=Math.random()*20+15+"px";
+document.body.appendChild(heart);
+setTimeout(()=>{heart.remove();},8000);
+}
+
+setInterval(createHeart,500);
+
+</script>
+
+</body>
+</html>
